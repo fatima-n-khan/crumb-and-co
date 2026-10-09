@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crumb &amp; Co. | Baked before sunrise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="logo">Crumb &amp; Co.</span>
+    <a href="#order">Order</a>
+  </header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="chapter hero" data-bg="#f7e2a0" data-ink="#2a1710">
+      <h1 class="reveal"><span>Baked</span> <span>before</span> <span>sunrise.</span></h1>
+      <p>Cakes, brownies and cupcakes, made in small batches every morning.</p>
+      <div class="frame hero-frame"><img src="images/hero.jpg" alt="Fresh cakes and brownies on a bakery counter"></div>
+    </section>
+
+    <!-- 2. Dough -->
+    <section class="chapter" data-bg="#f3eef7" data-ink="#2a1710">
+      <h2 class="reveal"><span>It starts</span> <span>at 4 a.m.</span></h2>
+      <p>Flour, butter and eggs, weighed by hand. The oven is already warm.</p>
+    </section>
+
+    <!-- 3. Brownies -->
+    <section class="chapter" data-bg="#2a1710" data-ink="#f7e2a0">
+      <h2 class="reveal"><span>Fudgy,</span> <span>never cakey.</span></h2>
+      <p>Dark chocolate, a crackly top and a middle that stays soft.</p>
+      <div class="frame wide-frame"><img src="images/brownie.jpg" alt="A tray of fudgy chocolate brownies"></div>
+    </section>
+
+    <!-- 4. Cake (pinned: layers stack as you scroll) -->
+    <section class="chapter cake" data-bg="#f6b4c4" data-ink="#2a1710">
+      <div class="cake-copy">
+        <h2>Built one layer at a time.</h2>
+        <p>Sponge. Cream. Sponge. Strawberries on top.</p>
+      </div>
+      <div class="cake-stack" aria-hidden="true">
+        <div class="layer berries"></div>
+        <div class="layer cream"></div>
+        <div class="layer sponge"></div>
+        <div class="layer cream"></div>
+        <div class="layer sponge"></div>
+      </div>
+    </section>
+
+    <!-- 5. Menu -->
+    <section class="chapter menu" data-bg="#c5dba9" data-ink="#2a1710">
+      <h2 class="reveal"><span>Today's</span> <span>bake.</span></h2>
+      <ul>
+        <li><img class="thumb" src="images/brownie.jpg" alt="Double chocolate brownie"><div><strong>Double chocolate brownie</strong> Dark chocolate, sea salt</div></li>
+        <li><img class="thumb" src="images/strawberry-cake.jpg" alt="Strawberry cream cake"><div><strong>Strawberry cream cake</strong> Vanilla sponge, fresh berries</div></li>
+        <li><img class="thumb" src="images/cupcake.jpg" alt="Pistachio cupcake"><div><strong>Pistachio cupcake</strong> Pistachio frosting, crushed nuts</div></li>
+      </ul>
+    </section>
+
+    <!-- 6. Order -->
+    <section class="chapter" id="order" data-bg="#2a1710" data-ink="#f7e2a0">
+      <h2 class="reveal"><span>Order for</span> <span>tonight.</span></h2>
+      <a class="btn" href="https://wa.me/920000000000">Order on WhatsApp</a>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
