@@ -49,16 +49,13 @@ h2 { font-size: clamp(2.5rem, 9vw, 7rem); }
 
 /* Cake */
 .cake { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.cake-stack { width: min(320px, 70vw); display: flex; flex-direction: column; align-items: center; }
+.cake-stack { position: relative; width: min(320px, 70vw); display: flex; flex-direction: column; align-items: center; }
 .layer { width: 100%; height: 56px; border-radius: 14px; margin-top: -6px; }
 .sponge { background: #f0c27a; }
 .cream { background: #fff8f0; height: 28px; }
 .berries { background: #e0405e; width: 70%; height: 48px; border-radius: 50% 50% 14px 14px; }
 
 /* Menu */
-.menu ul { list-style: none; padding: 0; margin-top: 2rem; max-width: 40rem; }
-.menu li { padding: 1.25rem 0; border-top: 2px solid var(--cocoa); }
-.menu strong { display: block; font-size: 1.4rem; }
 
 /* Button */
 .btn {
@@ -83,9 +80,80 @@ body { overflow-x: clip; }
 .frame img { display: block; width: 100%; height: 120%; object-fit: cover; }
 .hero-frame { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: 4 / 5; }
 .wide-frame { width: min(560px, 100%); aspect-ratio: 16 / 10; margin-top: 2rem; }
-.menu li { display: flex; align-items: center; gap: 1.25rem; }
-.thumb { width: 96px; height: 96px; border-radius: 16px; object-fit: cover; flex-shrink: 0; }
 @media (max-width: 700px) {
   .hero { grid-template-columns: 1fr; }
   .hero-frame { grid-column: 1; grid-row: auto; margin-top: 2rem; }
 }
+
+/* Intro loader */
+.loader {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  background: var(--cocoa); color: var(--butter);
+}
+.loader-word { font-family: "Bagel Fat One", cursive; font-size: clamp(2.5rem, 9vw, 7rem); white-space: nowrap; }
+.loader-word i { display: inline-block; font-style: normal; }
+
+/* Custom cursor */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  border-radius: 50%; background: #fff;
+  mix-blend-mode: difference; pointer-events: none;
+  display: none;
+}
+.has-cursor .cursor { display: block; }
+.has-cursor, .has-cursor a { cursor: none; }
+
+/* Cake extras */
+.cherry { position: relative; z-index: 2; width: 34px; height: 34px; margin-bottom: -12px; border-radius: 50%; background: #b3122f; }
+.cherry::before { content: ""; position: absolute; left: 50%; bottom: 80%; width: 3px; height: 22px; border-radius: 2px; background: #4a7a2e; transform: translateX(-50%) rotate(12deg); transform-origin: bottom; }
+.sprinkle { position: absolute; z-index: 3; width: 4px; height: 12px; border-radius: 2px; }
+
+/* Marquee */
+.marquee { overflow: hidden; background: var(--cocoa); color: var(--butter); padding: 1.1rem 0; }
+.marquee-track { display: flex; width: max-content; font-family: "Bagel Fat One", cursive; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; }
+.marquee-track span { white-space: nowrap; }
+
+/* Horizontal menu */
+.menu { overflow: hidden; padding-top: 5rem; padding-bottom: 3rem; }
+.track { display: flex; gap: 2rem; width: max-content; margin-top: 2rem; }
+.dish { width: min(calc(min(42vh, 420px) * 1.33), 80vw); flex-shrink: 0; }
+.dish .frame { aspect-ratio: auto; height: min(42vh, 420px); }
+.dish h3 { font-family: "Bagel Fat One", cursive; font-weight: 400; font-size: 1.75rem; line-height: 1.1; margin-top: 1rem; }
+.dish p { margin-top: 0.25rem; }
+@media (prefers-reduced-motion: reduce) { .track { width: auto; overflow-x: auto; } }
+
+/* Gallery */
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; align-items: start; }
+.grid .frame { aspect-ratio: 3 / 4; }
+.grid .frame:nth-child(even) { margin-top: 2.5rem; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Numbers */
+.stat-row { display: flex; flex-wrap: wrap; gap: 3rem 5rem; margin-top: 3rem; }
+.stat-row strong { display: block; font-family: "Bagel Fat One", cursive; font-weight: 400; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; }
+.stat-row span { font-weight: 600; }
+
+/* Reviews */
+.review-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+blockquote { border-top: 2px solid var(--cocoa); padding-top: 1.25rem; }
+.review-row p { margin: 0; max-width: none; font-size: 1.25rem; }
+cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; }
+
+/* Order background photo */
+.order { position: relative; overflow: hidden; }
+.order > *:not(.order-bg) { position: relative; z-index: 1; }
+.order-bg { position: absolute; left: 0; top: -10%; width: 100%; height: 120%; object-fit: cover; opacity: 0.35; }
+
+/* Footer */
+.footer { background: var(--cocoa); color: var(--butter); padding: 4rem clamp(1rem, 6vw, 5rem) 2rem; border-top: 1px solid rgba(247, 226, 160, 0.25); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+.footer h3 { font-family: "Bagel Fat One", cursive; font-weight: 400; font-size: 1.25rem; }
+.footer p { margin-top: 0.5rem; }
+.footer .logo { font-size: 2rem; margin-top: 0; }
+.footer a { color: inherit; }
+.footer small { display: block; margin-top: 3rem; opacity: 0.7; }
+
+/* Scroll progress bar */
+.progress { position: fixed; top: 0; left: 0; z-index: 150; width: 100%; height: 4px; background: #fff; mix-blend-mode: difference; transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
